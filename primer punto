@@ -1,0 +1,20 @@
+class persona:
+    def __init__(self,Nombre,Apellido,Documento_identidad,Ano_nacimiento):
+        self.Nombre = Nombre
+        self.Apellido = Apellido
+        self.Documento_identidad = Documento_identidad
+        self.Ano_nacimiento = Ano_nacimiento
+
+    def datos_personales(self):
+        print("- Nombre: ", self.Nombre, sep="")
+        print("- Apellido: ", self.Apellido, sep="")
+        print("- Documento de identidad: ", self.Documento_identidad, sep="")
+        print("- Año de nacimiento: ", self.Ano_nacimiento, sep="")
+        print("") # esto es para que deje espacio entre los datos personales de cada persona
+
+persona_1 = persona("Federico", "Gutierres", "1003534178", 1965)
+persona_1.datos_personales()
+
+persona_2 = persona("Alejandra", "Laverde", "10087635536", 1755)
+persona_2.datos_personales()
+        
