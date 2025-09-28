@@ -1,0 +1,42 @@
+class planeta:
+
+    nombre = ""
+    cantidad_satelites = 0
+    masa_kilogramos = 0
+    volumen_km3 = 0
+    diametro_km = 0
+    distancia_sol_miles_km = 0
+    tipo_planeta = ""
+
+
+    def __init__(self,nombre,cantidad_satelites,masa_kilogramos,volumen_km3,diametro_km,distancia_sol_miles_km,tipo_planeta):
+        self.nombre = nombre
+        self.cantidad_satelites = cantidad_satelites
+        self.masa_kilogramos = masa_kilogramos
+        self.volumen_km3 = volumen_km3
+        self.diametro_km = diametro_km
+        self.distancia_sol_miles_km = distancia_sol_miles_km
+        self.tipo_planeta = tipo_planeta
+
+    def datos_planeta(self):
+        print("-nombre: ",self.nombre)
+        print("-cantidad de satelites: ",self.cantidad_satelites)
+        print("-Masa(kg): ",self.masa_kilogramos)
+        print("-Volumen(km3): ",self.volumen_km3)
+        print("-Diametro(km): ",self.diametro_km)
+        print("-Distancia al Sol(miles de km): ",self.distancia_sol_miles_km)
+        print("-Tipo de planeta: ",self.tipo_planeta)
+        print("") # para dejar espacio
+
+    def densidad(self):
+        self.densidad = self.masa_kilogramos/self.volumen_km3
+        print(f"Su densidad es de: {self.densidad} kg/km3")
+        print("") # para dejar espacio
+        
+
+planeta_1 = planeta("Tierra", 1, 5.972e24, 1.083e12, 12756, 150,"Rocoso")
+planeta_1.datos_planeta()
+planeta_1.densidad()
+planeta_2 = planeta("Júpiter", 95, 1.898e27, 1.431e15, 142984, 778,"Gaseoso")
+planeta_2.datos_planeta()
+planeta_2.densidad()
