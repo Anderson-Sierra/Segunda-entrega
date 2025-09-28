@@ -32,11 +32,23 @@ class planeta:
         self.densidad = self.masa_kilogramos/self.volumen_km3
         print(f"Su densidad es de: {self.densidad} kg/km3")
         print("") # para dejar espacio
+
+    def exterior(self):
+        if self.distancia_sol_miles_km > 400: 
+            return print("Este es un planeta Exterior")
+        else:
+            return print("Este es un planeta Interior")
+        
+        
         
 
 planeta_1 = planeta("Tierra", 1, 5.972e24, 1.083e12, 12756, 150,"Rocoso")
 planeta_1.datos_planeta()
 planeta_1.densidad()
+planeta_1.exterior()
+print("") # para dejar espacio
 planeta_2 = planeta("Júpiter", 95, 1.898e27, 1.431e15, 142984, 778,"Gaseoso")
 planeta_2.datos_planeta()
 planeta_2.densidad()
+planeta_2.exterior()
+print("") # para dejar espacio
