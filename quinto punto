@@ -1,0 +1,69 @@
+class CuentaBancaria:
+    nombres_titular = ""
+    apellidos_titular = ""
+    numero_cuenta = ""
+    tipo_cuenta = ""  # 'ahorros' o 'corriente'
+    saldo = 0.0
+
+    def __init__(self, nombres, apellidos, numero, tipo, saldo_inicial):
+        self.nombres_titular = nombres
+        self.apellidos_titular = apellidos
+        self.numero_cuenta = numero
+        self.tipo_cuenta = tipo
+        # que el saldo inicial no sea negativo
+        self.saldo = max(0.0, saldo_inicial) 
+
+    def imprimir_datos_cuenta(self):
+        print("")
+        print("  datos de la cuenta bancaria")
+        print("")
+        print(f"- titular: {self.nombres_titular} {self.apellidos_titular}")
+        print(f"- número de cuenta: {self.numero_cuenta}")
+        print(f"- tipo de cuenta: {self.tipo_cuenta}")
+        self.consultar_saldo() # mostrar el saldo
+        print("")
+        print("")
+
+    def consultar_saldo(self):
+        print(f"- saldo actual: ${self.saldo:,.2f}") # de que moneda es
+        return self.saldo
+
+    def consignar(self, valor_consignar):
+        if valor_consignar > 0:
+            self.saldo += valor_consignar
+            print(f" consignación exitosa: +${valor_consignar:,.2f}")
+            print(f"   nuevo saldo: ${self.saldo:,.2f}")
+        else:
+            print("error: el valor a consignar debe ser positivo.")
+        print("")
+
+    def retirar(self, valor_retirar):
+        if valor_retirar <= 0:
+            print("error: el valor a retirar debe ser positivo.")
+        elif valor_retirar > self.saldo:
+            print("retiro denegado: el valor solicitado supera el saldo actual.")
+            print(f"   saldo disponible: ${self.saldo:,.2f}")
+        else:
+            self.saldo -= valor_retirar
+            print(f" retiro exitoso: -${valor_retirar:,.2f}")
+            print(f"   nuevo saldo: ${self.saldo:,.2f}")
+        print("")
+
+
+
+# creamos un objeto de la clase CuentaBancaria
+mi_cuenta = CuentaBancaria(nombres="andrés",apellidos="gómez lópez",numero="1020304050",tipo="ahorros",saldo_inicial=850000.75)
+    
+
+mi_cuenta.imprimir_datos_cuenta()
+
+mi_cuenta.consignar(150000)
+
+mi_cuenta.consultar_saldo()
+print("")
+
+mi_cuenta.retirar(200000)
+
+mi_cuenta.retirar(800000)
+
+mi_cuenta.imprimir_datos_cuenta()
