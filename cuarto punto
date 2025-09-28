@@ -1,0 +1,66 @@
+import math
+
+class TrianguloRectangulo:
+    base = 0.0
+    altura = 0.0
+    
+    nombre_figura = "Triángulo Rectángulo"
+
+    def __init__(self, base, altura):
+        self.base = base
+        self.altura = altura
+        
+    def calcular_hipotenusa(self):
+        return math.sqrt(self.base**2 + self.altura**2)
+
+    def datos_figura(self):
+        print(f"Figura: {self.nombre_figura}")
+        print(f"Base: {self.base} cm")
+        print(f"Altura: {self.altura} cm")
+        print(f"Hipotenusa (calculada): {self.calcular_hipotenusa():.2f} cm")
+        print("") # para dejar espacio
+
+    def calcular_area(self):
+        area = (self.base * self.altura) / 2
+        print(f"Su Área es de: {area} cm²")
+        print("") # para dejar espacio
+        return area # se retorna el valor por si lo necesito despues
+
+    def calcular_perimetro(self):
+        perimetro = self.base + self.altura + self.calcular_hipotenusa()
+        print(f"Su Perímetro es de: {perimetro:.2f} cm")
+        print("") # para dejar espacio
+        return perimetro
+
+    def determinar_tipo_triangulo(self):
+        a = self.base
+        b = self.altura
+        c = self.calcular_hipotenusa()
+        
+        # se usa tolerancia para la comparación de flotantes
+        tol = 1e-9
+
+        if abs(a - b) < tol and abs(b - c) < tol:
+            tipo = "Equilátero"
+        elif abs(a - b) < tol or abs(b - c) < tol or abs(a - c) < tol:
+            tipo = "Isósceles"
+        else:
+            tipo = "Escaleno"
+            
+        print(f"Este es un Triángulo de tipo: {tipo}")
+        print("") # para dejar espacio
+        return tipo
+
+
+triangulo_1 = TrianguloRectangulo(3.0, 4.0)
+triangulo_1.datos_figura()
+triangulo_1.calcular_area()
+triangulo_1.calcular_perimetro()
+triangulo_1.determinar_tipo_triangulo()
+
+
+triangulo_2 = TrianguloRectangulo(10.0, 10.0)
+triangulo_2.datos_figura()
+triangulo_2.calcular_area()
+triangulo_2.calcular_perimetro()
+triangulo_2.determinar_tipo_triangulo()
